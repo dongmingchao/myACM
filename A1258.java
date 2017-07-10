@@ -12,31 +12,20 @@ public class A1258 {
 		for (int i = 0; i < line.length; i++) {
 			line[i][0]=0;
 		}
-		int min=indexOfmin(line[0]);
-		int min2=0;
+		int minx=0;
+		int miny=0;
 		for (int t = 0; t < res.length;) {
 			//横排查找
-			min=indexOfmin(line[min2]);
-			res[t++]=line[min2][min];
+			miny=minx;
+			minx=indexOfmin(line[miny]);
+			res[t++]=line[miny][minx];
 			//横排置为0
-			for (int i = 0; i < line[min2].length; i++) {
-				line[min2][i]=0;
+			for (int i = 0; i < line[miny].length; i++) {
+				line[miny][i]=0;
 			}
-			//-----------------------
-			//竖排查找
-			if(t == res.length)
-				break;
-			min2=0;
-			while(line[min2][min]==0) min2++;
-			for (int i = 1; i < line.length; i++) {
-				if(line[min2][min]>line[i][min])
-					if(line[i][min]!=0)
-						min2=i;	
-			}
-			res[t++]=line[min2][min];
 			//竖排置为0
 			for (int i = 0; i < line.length; i++) {
-				line[i][min]=0;
+				line[i][miny]=0;
 			}
 		}
 		int fin=0;
