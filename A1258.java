@@ -27,6 +27,7 @@ public class A1258 {
 			for (int i = 0; i < line.length; i++) {
 				line[i][miny]=0;
 			}
+			//改正
 		}
 		int fin=0;
 		for (int i = 0; i < res.length; i++) {
